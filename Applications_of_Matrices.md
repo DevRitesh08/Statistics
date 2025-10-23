@@ -7,14 +7,14 @@ They provide a compact and efficient way to represent and manipulate large sets 
 
 ## 📘 1. Data Representation
 
-### 🧩 Concept:
+### 🧩 Dataset Concept
 
 In data science and ML, a **dataset** is represented as a **matrix**, where:
 
 - **Rows** correspond to **data samples** (observations)
 - **Columns** correspond to **features** (variables)
 
-### 🧮 Example
+### 🧮 Dataset Example
 
 Consider a dataset with 3 samples and 3 features:
 
@@ -25,14 +25,14 @@ Consider a dataset with 3 samples and 3 features:
 | 180 | 75 | 28 |
 
 This dataset can be written as:
-\[
+$$
 X =
 \begin{bmatrix}
 170 & 65 & 25 \\
 160 & 55 & 22 \\
 180 & 75 & 28
 \end{bmatrix}
-\]
+$$
 
 ### 💡 Use in ML
 
@@ -43,170 +43,190 @@ X =
 
 ## ⚙️ 2. Linear Transformations
 
-### 🧩 Concept:
+### 🧩 Transformation Concept
+
 A matrix can **transform** vectors by rotating, scaling, reflecting, or shearing them.
 
-### 🧮 Example:
-\[
+### 🧮 Scaling Example
+
+$$
 A =
 \begin{bmatrix}
 2 & 0 \\
 0 & 3
 \end{bmatrix}
-\]
-applied to a vector \([x, y]\) scales it by:
+$$
+
+applied to a vector $[x, y]$ scales it by:
+
 - 2 in the x-direction  
 - 3 in the y-direction
 
-### 💡 Applications:
+### 💡 Applications in ML
+
 - **Image scaling or rotation** in computer vision  
 - **Feature transformation** in data preprocessing  
 - **Dimensional transformations** in techniques like PCA
 
-### 🖼️ Visualization:
+### 🖼️ Visualization
+
 If you multiply a vector `[1,1]` by the above matrix, the resulting vector `[2,3]` has the same direction but stretched differently along each axis.
 
 ---
 
 ## 🧠 3. Neural Networks
 
-### 🧩 Concept:
+### 🧩 Neural Network Concept
+
 Each **layer** in a neural network performs a **matrix multiplication** to compute activations.
 
-### 🧮 Formula:
-\[
+### 🧮 Formula
+
+$$
 Z = W \cdot X + b
-\]
+$$
 
 Where:
-- \( W \) = Weight matrix  
-- \( X \) = Input vector or matrix  
-- \( b \) = Bias vector  
-- \( Z \) = Output (before activation)
 
-### 💡 Use:
+- $W$ = Weight matrix  
+- $X$ = Input vector or matrix  
+- $b$ = Bias vector  
+- $Z$ = Output (before activation)
+
+### 💡 Use
+
 - Enables **parallel computation** of neuron activations.
 - Matrix operations make **backpropagation** and **gradient descent** efficient.
 - Used in frameworks like TensorFlow, PyTorch, and JAX for GPU acceleration.
 
-### 🧩 Example:
-If \( W \) has size \( (n_{\text{neurons}} \times n_{\text{inputs}}) \), and \( X \) has shape \( (n_{\text{inputs}} \times 1) \),  
-then the matrix product gives the output for all neurons simultaneously.
+### 🧩 Implementation Example
+
+If $W$ has size $(n_{\text{neurons}} \times n_{\text{inputs}})$ and $X$ has shape $(n_{\text{inputs}} \times 1)$, then the matrix product gives the output for all neurons simultaneously.
 
 ---
 
 ## 🗣️ 4. Natural Language Processing (NLP)
 
-### 🧩 Concept:
+### 🧩 NLP Concept
+
 Words and sentences are represented as **vectors (embeddings)**, and collections of these form **matrices**.
 
-### 💡 Applications:
+### 💡 Applications
+
 - **Word2Vec**, **GloVe**, and **BERT** store embeddings as large matrices.
 - Each row corresponds to a word, and each column to a latent semantic dimension.
 
-### 🧮 Example:
-A simplified word embedding matrix:
-\[
-E =
-\begin{bmatrix}
-\text{king} \\
-\text{queen} \\
-\text{man} \\
-\text{woman}
-\end{bmatrix}
-=
-\begin{bmatrix}
+### 🧮 Embedding Matrix Example
+
+A simplified word embedding matrix (rows correspond to: king, queen, man, woman):
+
+$$
+E = \begin{bmatrix}
 0.52 & 0.73 & 0.21 \\
 0.51 & 0.70 & 0.20 \\
 0.45 & 0.62 & 0.18 \\
 0.44 & 0.63 & 0.17
 \end{bmatrix}
-\]
+$$
 
-### 💬 Interpretation:
-- Vector differences like **king - man + woman ≈ queen** are possible because of matrix representations.
+### 💬 Interpretation
+
+Vector arithmetic such as "king - man + woman ≈ queen" arises from linear relationships encoded in embedding spaces.
 
 ---
 
 ## 🎥 5. Computer Graphics & Vision
 
-### 🧩 Concept:
+### 🧩 Concept in Graphics
+
 Matrices are used to manipulate and transform coordinates of objects in 2D/3D space.
 
-### 💡 Applications:
+### 💡 Graphics Applications
+
 - **Rotation**, **translation**, **scaling**, and **projection** in rendering.
 - Used in **OpenGL**, **Blender**, and **Unity** engines.
 
-### 🧮 Example (Rotation Matrix):
-\[
+### 🧮 Rotation Matrix Example
+
+$$
 R =
 \begin{bmatrix}
-\cosθ & -\sinθ \\
-\sinθ & \cosθ
+\cos\theta & -\sin\theta \\
+\sin\theta & \cos\theta
 \end{bmatrix}
-\]
+$$
 
-Applying \( R \) to any 2D point rotates it counterclockwise by angle θ.
+Applying $R$ to any 2D point rotates it counterclockwise by angle $\theta$.
 
 ---
 
 ## 🧮 6. Solving Systems of Linear Equations
 
-### 🧩 Concept:
-Many ML algorithms are based on solving systems like:
-\[
-AX = B
-\]
+### 🧩 Problem Concept
 
-### 💡 Applications:
-- **Linear Regression:** \( X = (A^T A)^{-1} A^T B \)
+Many ML algorithms are based on solving systems like:
+
+$$
+AX = B
+$$
+
+### 💡 Common Applications
+
+- **Linear Regression:** $X = (A^T A)^{-1} A^T B$
 - **Optimization problems:** systems of equations often represent constraints or loss derivatives.
 
-### 🧮 Benefit:
+### 🧮 Solution Benefits
+
 Matrix algebra provides efficient and compact methods (LU decomposition, Gaussian elimination, etc.) to solve these systems.
 
 ---
 
 ## 📈 7. Dimensionality Reduction (PCA)
 
-### 🧩 Concept:
+### 🧩 PCA Concept
+
 Principal Component Analysis uses the **covariance matrix** of data to find directions (eigenvectors) of maximum variance.
 
-\[
+$$
 C = \frac{1}{n} X^T X
-\]
+$$
 
-### 💡 Applications:
+### 💡 PCA Applications
+
 - Reduces high-dimensional data into fewer dimensions.
 - Speeds up ML training.
 - Helps in visualization and noise reduction.
 
-### 🧮 Example:
-Eigenvectors of \( C \) define principal components;  
-Eigenvalues represent the variance explained by each component.
+### 🧮 PCA Example
+
+Eigenvectors of $C$ define principal components; eigenvalues represent the variance explained by each component.
 
 ---
 
 ## 🧬 8. Image Processing
 
-### 🧩 Concept:
+### 🧩 Pixel Representation
+
 An image can be represented as a **matrix of pixels**:
+
 - Grayscale → 2D matrix  
 - RGB → 3D matrix (Height × Width × 3)
 
-### 💡 Applications:
+### 💡 Image Processing Applications
+
 - **Blurring**, **sharpening**, **edge detection**, etc. via **convolution matrices** (filters).
 - **Feature extraction** in CNNs.
 
-### 🧮 Example (Blur Filter):
-\[
+### 🧮 Blur Filter Example
+
+$$
 \frac{1}{9}
 \begin{bmatrix}
 1 & 1 & 1 \\
 1 & 1 & 1 \\
 1 & 1 & 1
 \end{bmatrix}
-\]
+$$
 
 Applied to the image matrix → smoothens pixel values.
 
@@ -214,38 +234,46 @@ Applied to the image matrix → smoothens pixel values.
 
 ## 🎯 9. Recommendation Systems
 
-### 🧩 Concept:
+### 🧩 Factorization Concept
+
 Matrix factorization is used to predict missing user-item interactions (e.g., ratings).
 
-\[
+$$
 R \approx U \cdot V^T
-\]
+$$
 
 Where:
-- \( R \): user-item matrix  
-- \( U \): user-feature matrix  
-- \( V \): item-feature matrix
 
-### 💡 Applications:
+- $R$: user-item matrix  
+- $U$: user-feature matrix  
+- $V$: item-feature matrix
+
+### 💡 Recommendation Applications
+
 - Netflix movie recommendations  
 - Spotify music suggestions  
 - Amazon product recommendations
 
-### 🧮 Idea:
+### 🧮 Latent Features Idea
+
 Learn latent features that represent user preferences and item characteristics.
 
 ---
 
 ## 🧩 10. Control Systems and Robotics
 
-### 💡 Applications:
+### 💡 Control Applications
+
 - State-space representation of systems:
-  \[
-  X' = AX + BU
-  \]
+
+$$
+X' = AX + BU
+$$
+
 - Describes how system states evolve over time.
 
 Used in:
+
 - **Autonomous navigation**
 - **Drone flight control**
 - **Robotic arm motion**
@@ -254,18 +282,20 @@ Used in:
 
 ## 🧩 11. Graph Theory and Networks
 
-### 💡 Concept:
+### 💡 Graph Representation
+
 Graphs can be represented using **adjacency matrices**.
 
-\[
+$$
 A_{ij} =
 \begin{cases}
 1, & \text{if edge between node i and j} \\
 0, & \text{otherwise}
 \end{cases}
-\]
+$$
 
-### 💡 Applications:
+### 💡 Use Cases
+
 - **Social network analysis**
 - **Web page ranking (PageRank)**
 - **Graph neural networks (GNNs)**
@@ -277,13 +307,13 @@ A_{ij} =
 | Domain | Application | Example |
 |:--------|:-------------|:---------|
 | Data Science | Dataset representation | Feature matrix |
-| ML Algorithms | Regression, PCA | \(AX = B\) |
-| Deep Learning | Neural network layers | \(Z = W·X + b\) |
+| ML Algorithms | Regression, PCA | $AX = B$ |
+| Deep Learning | Neural network layers | $Z = W \cdot X + b$ |
 | Computer Vision | Image transformations | Rotation, scaling |
 | NLP | Word embeddings | Word2Vec, BERT |
 | Recommender Systems | Matrix factorization | Netflix suggestions |
 | Graphics | 3D modeling | Projection matrices |
-| Control Systems | System state updates | \(X' = AX + BU\) |
+| Control Systems | System state updates | $X' = AX + BU$ |
 | Graph Theory | Node relationships | Adjacency matrix |
 
 ---
@@ -292,8 +322,9 @@ A_{ij} =
 
 Matrices act as the **mathematical backbone** of most computational systems.  
 They allow computers to:
+
 - Represent and process multidimensional data efficiently  
 - Perform linear transformations  
 - Express complex relationships compactly  
 
-Whether it’s predicting movie ratings, classifying images, or training large neural networks, **matrices power the computation** behind it all.
+Whether it's predicting movie ratings, classifying images, or training large neural networks, **matrices power the computation** behind it all.
